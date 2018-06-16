@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken")
 // const user = require("./user.js");
 // const game = require("./game.js");
 // const exception = require("./exception.js");
-secretKey = "12345";
+secretKey = "123456";
 
 const app = express();
 app.use(bodyParser.json());
