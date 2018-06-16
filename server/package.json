@@ -1,0 +1,30 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "TicTacToe game server apis.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnam/TicTacToe.git"
+  },
+  "keywords": [
+    "TicTacToe"
+  ],
+  "author": "vnam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vnam/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/vnam/TicTacToe#README",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mysql": "^2.14.1",
+    "redis": "^2.8.0",
+    "uuid": "^3.1.0"
+  }
+}
