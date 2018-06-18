@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken")
-const user = require("./user.js");
-const game = require("./game.js");
+// const user = require("./user.js");
+// const game = require("./game.js");
 const exception = require("./exception.js");
 secretKey = "123456";
 
