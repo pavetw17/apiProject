@@ -1,5 +1,5 @@
 # apiProject
-##Docker
+## Docker
 1. One liner to stop / remove all of Docker containers:
 
 docker stop $(docker ps -a -q)
@@ -12,12 +12,12 @@ docker rm $(docker ps -a -q)
 
 docker rmi $(docker images -q)
 
-##Detail container ($docker ps)
+## Detail container ($docker ps)
 $ docker ps                     
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 3c0c3a545087        centos              "bin/bash"          19 seconds ago 
 
-##List container
+## List container
 docker ps -a 
 
 ## Remove
@@ -30,3 +30,5 @@ docker pull ubuntu
 
 ##  Run
 Run Ubuntu: $ docker run -i -t ubuntu /bin/bash
+
+
