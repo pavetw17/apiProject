@@ -21,4 +21,14 @@ The body-parser package will parse multi-line raw JSON payloads just fine.<br/>
 ```javascript
 {
     "foo": "bar"
-}```
+}
+```
+<br/>
+2. Configuring connect to Redis server
+app.js
+
+var redis = require('redis');
+var client = redis.createClient(); //creates a new client
+By default, redis.createClient() will use 127.0.0.1 and 6379 as the hostname and port respectively. If you have a different host/port you can supply them as following:
+
+var client = redis.createClient(port, host);

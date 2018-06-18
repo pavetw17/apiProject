@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken")
-// const user = require("./user.js");
-// const game = require("./game.js");
-// const exception = require("./exception.js");
+const user = require("./user.js");
+const game = require("./game.js");
+const exception = require("./exception.js");
 secretKey = "123456";
 
 const app = express();
@@ -26,9 +26,6 @@ app.post("/register", (req, res) => {
 	const username = content.username;
 	const password = content.password;
 	const passwordConfirmation = content.passwordConfirmation;
-
-	console.error('error happens:', req.body);
-	res.send('username');
 
 	if(password != passwordConfirmation){
 		console.log("password not matched!");
