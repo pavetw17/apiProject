@@ -21,7 +21,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 docker ps -a 
 
 ## Remove
-First, $ docker rm {container_id}
+First, $ docker rm {container_id} </br>
 Second, $ docker rmi {image_id}
 
 
