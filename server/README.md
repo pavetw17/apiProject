@@ -34,7 +34,7 @@ By default, redis.createClient() will use 127.0.0.1 and 6379 as the hostname and
 var client = redis.createClient(port, host);
 
 ## Using docker on window
-Run on ip address: http://192.168.99.100:8082/ not use localhost
+Run on ip address: http://192.168.99.100:8082/ not use localhost because it's running a Linux VM in VirtualBox (ip of Linux VM)
 
 ### Display ip address: 
 ```bash
