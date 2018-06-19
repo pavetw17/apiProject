@@ -14,9 +14,3 @@ module.exports.getMySqlConnection = () => mysql.createConnection(config.mysqlCon
 //   password : 'secret',
 //   database : 'my_db'
 // });
-
-// var redisConfig = {
-//            "host": "localhost",
-//            "port": 6379
-//        };
-//  redis.createClient(redisConfig);

@@ -1,7 +1,67 @@
-FROM node:10
-WORKDIR /app
-COPY package.json /app
-RUN npm install
-COPY . /app
-CMD node index.js
+# set the base image to Debian
+# https://hub.docker.com/_/debian/
+FROM ubuntu
+
+
+
+# replace shell with bash so we can source files
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# update the repository sources list
+# and install dependencies
+RUN apt-get update \
+    && apt-get install -y curl \
+    && apt-get -y autoclean
+
+# nvm environment variables
+ENV NVM_DIR /usr/local/nvm
+ENV NODE_VERSION 9.2.0
+
+# install nvm
+# https://github.com/creationix/nvm#install-script
+RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+#RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.6/install.sh | bash
+
+# install node and npm
+RUN source $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+# add node and npm to path so the commands are available
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
+
+# confirm installation
+RUN node -v
+RUN npm -v
+
+# Setup the port app wll server up on
 EXPOSE 8082
+
+# Location where the app will be on container
+# if you run
+# docker run -it web /bin/bash
+# you will be taken to this path
+
+WORKDIR /app
+
+# only mounting the package.json file to volume on the container,
+# so only node_modules will be on the container and not on the host machine
+
+ADD . /app
+
+# to install all the dependencies
+#RUN npm install \
+#    && npm run prod
+#RUN npm install -g gatsby-cli@latest
+RUN npm install
+
+RUN npm install babel-core
+RUN npm install babel-loader
+#RUN npm install --save-dev webpack
+RUN npm install extract-text-webpack-plugin
+RUN npm i extract-text-webpack-plugin
+
+
+CMD ["npm","run","prod-server"]
